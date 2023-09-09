@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="styles.css"></link>
+</head>
+<body>
+    <div class="box">
+        <div class="profile-picture">
+            <img src="mee.jpg" alt="Adepoju-Ifeoluwa-Dorcas" data-testid="slackDisplayImage">
+        </div>
+
+        <p data-testid="slackUserName" class="name">Ifeoluwa Dorcas</p>
+        <p data-testid="myTrack" class="track">Frontend</p>
+        <div id="current-day" data-testid="currentDayOfTheWeek"></div>
+        <a href="https://github.com/IfeoluwaDorcas?tab=repositories" data-testid="githubURL"> GitHub repository</a>
+        <p class="time">UTC TIme:</p>
+        <div id="utc" data-testid="currentUTCTime"></div>
+        
+        <script>
+        
+        //Current day
+        function days_update() {
+            const days_of_week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const current_date = new Date();
+            const current_day_index = current_date.getUTCDay();
+            const current_day = days_of_week[current_day_index];
+            document.getElementById('current-day').textContent = `Current Day: ${current_day}`;
+        }
+        days_update();
+
+        
+        //UTC time
+        function updateUTCTime() {
+            const utcTimeElement = document.getElementById('utc');
+            const now = new Date();
+        
+            const day = now.getUTCDate();
+            const month = now.getUTCMonth() + 1;
+            const year = now.getUTCFullYear();
+        
+            const hours = now.getUTCHours();
+            const minutes = now.getUTCMinutes();
+            const seconds = now.getUTCSeconds();
+            const milliseconds = now.getUTCMilliseconds();
+        
+            const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+            const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}:${milliseconds.toString().padStart(3, '0')}`;
+        
+            const formattedUTCTime = `${formattedDate} ${formattedTime} UTC`;
+            utcTimeElement.textContent = formattedUTCTime;
+        }
+        
+        updateUTCTime();
+        setInterval(updateUTCTime, 100);
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+body {
+    font-family: poppins;
+    justify-content: center;
+    display: flex;
+}
+
+.box {
+    width: max(500px);
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: poppins;
+    border-radius: 5px;
+}
+
+.profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    justify-content: center;
+    margin-left: 30%;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.name {
+    font-weight: bold;
+    margin: 25px;
+    font-size: max(20px);
+}
+
+.track, .time {
+    font-weight: bold;
+    margin: 25px;
+    font-size: max(16px);
+}
+
+#current-day, #utc, a{
+    font-weight: normal;
+    margin: 25px;
+    font-size: max(16px);
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: blue;
+}
