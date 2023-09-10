@@ -20,7 +20,6 @@
         <div id="utc" data-testid="currentUTCTime"></div>
         
         <script>
-        
         //Current day
         function days_update() {
             const days_of_week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -31,30 +30,15 @@
         }
         days_update();
 
-        
         //UTC time
-        function updateUTCTime() {
+        function updateTime() {
             const utcTimeElement = document.getElementById('utc');
-            const now = new Date();
-        
-            const day = now.getUTCDate();
-            const month = now.getUTCMonth() + 1;
-            const year = now.getUTCFullYear();
-        
-            const hours = now.getUTCHours();
-            const minutes = now.getUTCMinutes();
-            const seconds = now.getUTCSeconds();
-            const milliseconds = now.getUTCMilliseconds();
-        
-            const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
-            const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}:${milliseconds.toString().padStart(3, '0')}`;
-        
-            const formattedUTCTime = `${formattedDate} ${formattedTime} UTC`;
-            utcTimeElement.textContent = formattedUTCTime;
+            const currentUTCTime = Date.now();
+            utcTimeElement.textContent = currentUTCTime;
         }
-        
-        updateUTCTime();
-        setInterval(updateUTCTime, 100);
+
+        updateTime();
+        setInterval(updateTime, 1000);
         </script>
     </div>
 </body>
